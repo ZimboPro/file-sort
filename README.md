@@ -6,6 +6,33 @@ The options will all be in configuration files.
 
 ## Configuration
 
+### MVP
+
+```JSON
+{
+  "configurations": [
+    {
+      "directory": "/absolute/path/to/directory",
+      "regex": {
+        "search": "",
+        "output": ""
+      }
+    }
+  ]
+}
+```
+
+```YAML
+---
+configurations:
+- directory: "/absolute/path/to/directory"
+  regex:
+    search: ''
+    output: ''
+```
+
+### End Goal
+
 ```JSON
 {
   "configurations": [

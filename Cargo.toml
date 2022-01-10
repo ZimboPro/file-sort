@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 rust-fuzzy-search = { git = "https://gitlab.com/EnricoCh/rust-fuzzy-search"}
+regex = "1"
+yaml-rust = "0.4"
