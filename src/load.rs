@@ -1,4 +1,4 @@
-use yaml_rust::{YamlLoader, Yaml};
+use yaml_rust::{YamlLoader, Yaml, YamlEmitter};
 
 // use std::path;
 use std::path::PathBuf;
@@ -22,4 +22,22 @@ fn create_config_path(path_directory: &std::path::PathBuf) -> PathBuf {
 //  let p = path_directory.join(".file-sort-config.yaml");
  path_directory.join(".file-sort-config.yaml")
 //  *p.as_path()
+}
+
+pub fn save_config(path_directory: &std::path::PathBuf, config: &Yaml) {
+  let path = create_config_path(path_directory);
+  let mut out_str = String::new();
+  {
+      let mut emitter = YamlEmitter::new(&mut out_str);
+      emitter.dump(config).unwrap(); // dump the YAML object to a String
+  }
+  let result = fs::write(path, out_str);
+  match result {
+      Err(err) => {
+        println!("An error on occurred while saving: {}", err);
+      },
+      Ok(_) => {
+
+      }
+  }
 }
